@@ -1,0 +1,12 @@
+name: ProjectApp
+title: ProjectApp
+username:
+account: bancarel-presles-grobon-guermond
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3302891
+bundleId: 3906818
+url: https://bancarel-presles-grobon-guermond.shinyapps.io/ProjectApp/
+when: 1606346276.83258
+asMultiple: FALSE
+asStatic: FALSE

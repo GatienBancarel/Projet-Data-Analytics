@@ -1,7 +1,7 @@
 ---
 title: "Presentation Data Analytics"
 author: "Bancarel - Presles - Grobon - Guermond"
-date: "24/11/2020"
+date: "26/11/2020"
 output: ioslides_presentation
 ---
 
@@ -13,7 +13,34 @@ knitr::opts_chunk$set(echo = FALSE)
 c_path_plots <- "Captures_Ecran"
 ```
 
-## Context presentation
+## Context
+
+- <font size="6">This project aims to analyze AirBnb's data for three different cities: Amsterdam, Barcelona and Bordeaux.</font>
+- <font size="6">For this purpose, we created a Shiny app in R</font>
+
+## Shiny app architecture
+
+- <font size="6">First part allows the users to make a cross-analysis among the three cities to compare several of the data's features</font>
+- <font size="6">Second part allows the users to look more specifically into one of these cities once he has chosen a city</font>
+
+
+## Part 1: Cross-Analysis features selection
+
+Allows the users to select between 3 different features : 
+
+``` {r, out.width = "400px"}
+knitr::include_graphics(file.path(c_path_plots, "Feature_compare.png"))
+```
+
+## Part 1: Cross-Analysis cities selection
+
+Allows the users to select 2 cities to compare.
+
+``` {r, out.width = "300px"}
+knitr::include_graphics(file.path(c_path_plots, "City_selection.png"))
+```
+
+## Part 2: Deep dive analysis date selection
 
 * Analysis is done on **3 cities** located in **3 different countries** and **3 different dates**
 * You can also see the sidebar menu of the app, including a **specific display for each city** and a global data comparator
@@ -28,7 +55,7 @@ knitr::include_graphics(file.path(c_path_plots, "White_col.png"))
 knitr::include_graphics(file.path(c_path_plots, "Dates.png"))
 ```
 
-## Cities : The map
+## Part 2: Map overview
 ```{r, fig.show="hold", out.width = "350px"}
 knitr::include_graphics(file.path(c_path_plots, "City_map.png"))
 ```
@@ -42,10 +69,10 @@ knitr::include_graphics(file.path(c_path_plots, "Cities_params.png"))
 * **The map displaying residences** responding to the defined criterias
 * The different parameters that influences the map display
 
-## Cities : The avaliability
+## Part 2: Availability check
 
 * The graphs displayed in the application, with **colors, legends and labels**
-* The flexible parameters of the histograms
+* Dynamic filters (number of bedrooms, room types)
 
 ```{r, fig.show="hold", out.width = "430px"}
 knitr::include_graphics(file.path(c_path_plots, "Graphs_analysis.png"))
@@ -57,16 +84,6 @@ knitr::include_graphics(file.path(c_path_plots, "White_col.png"))
 knitr::include_graphics(file.path(c_path_plots, "Params_analysis.png"))
 ```
 
-## Créer une nouvelle slide
+## Conclusion
 
-Laissez une tabulation pour revenir à la ligne entre les éléments
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
+- <font size="8">Thank you for your attention !</font>

@@ -23,11 +23,11 @@ listings_bordeaux <- subset(listings_bordeaux, city!="city")
 listings_all_cities <- read.csv(file='data_cleansed/all_cities.csv')
 listings_all_cities <- subset(listings_all_cities, city!="city")
 
-amsterdam_top10<-tail(names(sort(table(listings_amsterdam$neighbourhood_cleansed))), 10)
+amsterdam_top3<-tail(names(sort(table(listings_amsterdam$neighbourhood_cleansed))), 3)
 
-barca_top10<-tail(names(sort(table(listings_barca$neighbourhood_cleansed))), 10)
+barca_top3<-tail(names(sort(table(listings_barca$neighbourhood_cleansed))), 3)
 
-bordeaux_top10<-tail(names(sort(table(listings_bordeaux$neighbourhood_cleansed))), 10)
+bordeaux_top3<-tail(names(sort(table(listings_bordeaux$neighbourhood_cleansed))), 3)
 
 ## app.R ##
 server <- function(input, output) {
@@ -143,47 +143,64 @@ server <- function(input, output) {
       geom_bar(aes(fill=room_type), position = position_dodge())
   })
   
-  output$plot_compare <- renderPlot({
-    # 
-    #  if(input$select_feature=="price") 
-    #  {
-    #     choice=switch(
-    #       input$select_aggregation,
-    #       "mean"=mean(listings_all_cities$price_30),
-    #       "median"=median(listings_all_cities$price_30),
-    #       "min"=min(listings_all_cities$price_30),
-    #       "max"=max(listings_all_cities$price_30)
-    #     )
-    #  }
-    # 
-    # if(input$select_feature=="ava")
-    # {
-    #   choice=switch(
-    #     input$select_aggregation,
-    #     "mean"=mean(listings_all_cities$availability_30),
-    #     "median"=median(listings_all_cities$availability_30),
-    #     "min"=min(listings_all_cities$availability_30),
-    #     "max"=max(listings_all_cities$availability_30),
-    #   )
-    # }
-    # 
-    # if(input$select_feature=="rev")
-    # {
-    #   choice=switch(
-    #     input$select_aggregation,
-    #     "mean"=mean(listings_all_cities$revenue_30),
-    #     "median"=median(listings_all_cities$revenue_30),
-    #     "min"=min(listings_all_cities$revenue_30),
-    #     "max"=max(listings_all_cities$revenue_30),
-    #   )
-    # }
+  output$plot0_1 <- renderPlot({
     
+    #x <- switch(
+    #  input$select_feature1,
+    #  "room_type"=listings_amsterdam$room_type,
+    #  "bedrooms"=listings_amsterdam$bedrooms,
+    #  "beds"=listings_amsterdam$beds,
+    #  "property_type"=listings_amsterdam$property_type
+    #  
+    #  )
+
+    listings_city_selected1<-subset(listings_all_cities, city==input$select_city1)
     
-    ggplot(listings_all_cities, aes(x=city, y=availability_30)) + 
-      geom_bar(stat='identity',aes(fill=city), position = position_dodge())
+    if(input$select_feature=="Room Type")
+    {
+      x<-listings_city_selected1$room_type
+    }
     
+    if(input$select_feature=="Property Type")
+    {
+      x<-listings_city_selected1$property_type
+    }
     
-   })
+    if(input$select_feature=="Availability")
+    {
+      x<-listings_city_selected1$availability_30
+    }
+    
+    ggplot(listings_city_selected1,aes(x)) +
+      geom_bar(aes(fill=x), position = position_dodge())
+  }) 
+  
+  output$plot0_2 <- renderPlot({
+    
+    listings_city_selected2<-subset(listings_all_cities, city==input$select_city2)
+
+    if(input$select_feature=="Room Type")
+    {
+      y<-listings_city_selected2$room_type
+    }
+    
+    if(input$select_feature=="Property Type")
+    {
+      y<-listings_city_selected2$property_type
+    }
+    
+    if(input$select_feature=="Availability")
+    {
+      y<-listings_city_selected2$availability_30
+    }
+    
+      ggplot(listings_city_selected2,aes(y)) +
+        geom_bar(aes(fill=y), position = position_dodge())   
+    
+
+  })
+  
+  
   
 }
 
@@ -206,24 +223,25 @@ ui <- dashboardPage(skin = "red",
                       tabItems(
                         tabItem(tabName = "cross_city",
                                 fluidRow(
-                                  column(3,
-                                         radioButtons(inputId = "select_feature", label = h4("Select a feature to compare cities"), choices=c(
-                                           "Price on 30 days"="price", 
-                                           "Availability on 30 days"="ava",
-                                           "Revenue on 30 days"="rev"))),
-                                ),
+                                  box(width=4,
+                                  column(10,
+                                         
+                                         radioButtons(inputId = "select_feature", label = h4("Select feature to compare"), choices=c("Room Type"="Room Type","Property Type"="Property Type","Availability"="Availability"))),
+                                        ),
+                                
                                 
                                 hr(),
-                                selectInput("select_city1", label = h4("1st City to compare"), 
+                                selectInput("select_city1", label = h4("Select one city"), 
                                             c(sort(unique(listings_all_cities[,"city"]))), 
                                             selected = 1),
-                                
-                                selectInput("select_city2", label = h4("2nd City to compare"), 
+                                plotOutput('plot0_1'),
+                                selectInput("select_city2", label = h4("Select another city"), 
                                             c(sort(unique(listings_all_cities[,"city"]))), 
                                             selected = 1),
-                                
-                                plotOutput('plot_compare'),
+                                plotOutput('plot0_2'),
+                                ),
                         ),
+
                         tabItem(tabName = "amsterdam",
                                 
                                 selectInput("select_date_am", label = h4("Select the date of your trip :"), 
