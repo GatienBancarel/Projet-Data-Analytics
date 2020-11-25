@@ -1,0 +1,72 @@
+---
+title: "Presentation Data Analytics"
+author: "Bancarel - Presles - Grobon - Guermond"
+date: "24/11/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+``` {r}
+c_path_plots <- "Captures_Ecran"
+```
+
+## Context presentation
+
+* Analysis is done on **3 cities** located in **3 different countries** and **3 different dates**
+* You can also see the sidebar menu of the app, including a **specific display for each city** and a global data comparator
+
+``` {r, out.width = "250px"}
+knitr::include_graphics(file.path(c_path_plots, "Cities_list.png"))
+```
+``` {r, out.width = "50px"}
+knitr::include_graphics(file.path(c_path_plots, "White_col.png"))
+```
+``` {r, out.width = "350px"}
+knitr::include_graphics(file.path(c_path_plots, "Dates.png"))
+```
+
+## Cities : The map
+```{r, fig.show="hold", out.width = "350px"}
+knitr::include_graphics(file.path(c_path_plots, "City_map.png"))
+```
+``` {r, out.width = "30px"}
+knitr::include_graphics(file.path(c_path_plots, "White_col.png"))
+```
+```{r, fig.show="hold", out.width = "350px"}
+knitr::include_graphics(file.path(c_path_plots, "Cities_params.png"))
+```
+
+* **The map displaying residences** responding to the defined criterias
+* The different parameters that influences the map display
+
+## Cities : The avaliability
+
+* The graphs displayed in the application, with **colors, legends and labels**
+* The flexible parameters of the histograms
+
+```{r, fig.show="hold", out.width = "430px"}
+knitr::include_graphics(file.path(c_path_plots, "Graphs_analysis.png"))
+```
+``` {r, out.width = "10px"}
+knitr::include_graphics(file.path(c_path_plots, "White_col.png"))
+```
+```{r, fig.show="hold", out.width = "320px"}
+knitr::include_graphics(file.path(c_path_plots, "Params_analysis.png"))
+```
+
+## Créer une nouvelle slide
+
+Laissez une tabulation pour revenir à la ligne entre les éléments
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
