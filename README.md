@@ -23,13 +23,16 @@ In this part we can choose between 3 cities :
 For each of them we can see a map with the residences existing on Airbnb. It is possible to zoom in and out and drag the map.
 It is also possible to choose betbeen different parameters and each of them refresh the map when updated :
 
-- Date
+- Date 
+
 We can select one date among three. 
 
 - Room type
+
 We can choose if we want a : Entire room/apt, Private room, Shared room, Hotel room.
 
 - Number of beds
+
 Whith a slide bar it is possible to select between a minimum of 1 and a maximum of 20.
 
 There is another pannel displaying in a graph the number of bedrooms for each type of residences. This can be modulated by two slide bars :
