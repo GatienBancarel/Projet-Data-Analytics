@@ -7,40 +7,34 @@ The application has been designed to study data sets from airbnb in Barcelona, B
 
 #### Cross Cities Dashborad:
 
-1 - Show the aggregated values per year (2015, 2016, 2017, 2018) of :
+In this part, we can plot 3 different graphs. They show respectively the number of airbnb per room type, per property type or per number of days available.
 
-* The total number of trains that have been carried out
-* The total number of delayed trains at departure
-* The total number of delayed trains at arrival
-* The average number of delayed trains at departure
-* The average number of delayed trains at arrival
-* The total average departure delay time of all trains
-* The total average arrival delay time of all trains
-* The average departure delay time of delayed trains
-* The average arrival delay time of delayed trains
-* The total number of cancelled trains
-* The percentage (proportion) of cancelled trains
-* The percentage (proportion) of delay causes
+We can compare these graphs for any 2 of the three cities.
 
-2 - Show the same aggregated values per departure station (Paris Est, LYON PART DIEU, ...)
+All this data contains every date available for each of the city.
 
 #### City Dashboard: 
 
-1 - Show the available airports on a map.
-* Try representing airport traffic on the map.
-  
-2 - Show the aggregated values per airline (United Air Lines, American Airlines...) of : 
+In this part we can choose between 3 cities :
+- Amsterdam
+- Barcelona
+- Bordeaux
 
-* The total number of flights
-* The total number of delayed flights
-* The average flight duration
-* The average flight distance
-* The total distance covered by all airline flights
-* The average departure delay
-* The average arrival delay
+For each of them we can see a map with the residences existing on Airbnb. It is possible to zoom in and out and drag the map.
+It is also possible to choose betbeen different parameters and each of them refresh the map when updated :
 
-3 - Show the same aggregated values per departure airport (LAX, JFK...)
+- Date
+We can select one date among three. 
+
+- Room type
+We can choose if we want a : Entire room/apt, Private room, Shared room, Hotel room.
+
+- Number of beds
+Whith a slide bar it is possible to select between a minimum of 1 and a maximum of 20.
+
+There is another pannel displaying in a graph the number of bedrooms for each type of residences. This can be modulated by two slide bars :
+The first one to pick a range of prices, the second one to select a minimum of nights available.
 
 ##### More:
-[Pitch Presentation on RPubs](http://rpubs.com/clementhbr/562507)
-<br>Shiny App Deployed: [shinyapps.io](https://mathismaunick.shinyapps.io/projet_R-master/?fbclid=IwAR0LAbezLiRGOyd95a666izogc10pB5ur_B8KuggKD_s0OJI6gcnXdD8FqY)
+[Pitch Presentation on RPubs](https://rpubs.com/gatien/695968)
+<br>Shiny App Deployed: [shinyapps.io](https://bancarel-presles-grobon-guermond.shinyapps.io/ProjectApp/)
