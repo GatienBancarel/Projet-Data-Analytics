@@ -25,7 +25,7 @@ It is also possible to choose betbeen different parameters and each of them refr
 
 - Date 
 
-We can select one date among three. 
+We can select one date among three. It is mandatory to selectect a date to have any visuals.
 
 - Room type
 
